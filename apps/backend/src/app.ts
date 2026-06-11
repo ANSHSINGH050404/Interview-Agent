@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import router from "./routes";
 import Interviewrouter from "./routes/interview";
 
@@ -7,6 +8,7 @@ import { notFound } from "./middleware/notFound";
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -17,3 +19,4 @@ app.use(notFound);
 app.use(errorHandler);
 
 export default app;
+``
