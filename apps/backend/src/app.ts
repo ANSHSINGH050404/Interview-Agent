@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import router from "./routes";
 import Interviewrouter from "./routes/interview";
+import Questionsrouter from "./routes/questions";
 
 import { errorHandler } from "./middleware/errorHandler";
 import { notFound } from "./middleware/notFound";
@@ -14,9 +15,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/v1", router);
 app.use("/api/v1", Interviewrouter);
+app.use("/api/v1", Questionsrouter);
 
 app.use(notFound);
 app.use(errorHandler);
 
 export default app;
-``
